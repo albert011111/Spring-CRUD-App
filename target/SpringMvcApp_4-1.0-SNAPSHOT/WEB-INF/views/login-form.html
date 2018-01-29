@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <!--PODLACZENIE STYLOW CSS-->
+    <link rel="stylesheet" href="/resources/css/form_3.css" type="text/css"/>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="container">
+    <h1>Login form</h1>
+
+    <div th:if="${param.error}" class="error" >
+        Invalid username or/and password!
+    </div>
+
+    <div>
+        <h3>To log in use:</h3>
+        <h5>User: patryk</h5>
+        <h5>Password: 1234</h5>
+        <form action="loginForm" th:action="@{/loginForm}" method="post">
+
+            <div>
+                <input type="text" name="user" placeholder="Username..."
+                       onfocus="this.placeholder=''"
+                       onblur="this.placeholder='Username...'"/>
+            </div>
+
+            <div>
+                <input type="password" name="pass" placeholder="Password..."
+                       onfocus="this.placeholder=''"
+                       onblur="this.placeholder='Password...'"/>
+            </div>
+
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+            <input type="submit" value="LOGIN">
+
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
+

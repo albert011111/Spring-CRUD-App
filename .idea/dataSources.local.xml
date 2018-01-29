@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="web_customer_tracker@localhost" uuid="bb342186-539b-4447-a714-328a3ee7cae2">
+      <database-info product="MySQL" version="5.7.19-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <user-name>root</user-name>
+      <introspection-schemas>*:web_customer_tracker</introspection-schemas>
+      <resolve-scope>web_customer_tracker:</resolve-scope>
+      <unqualified-resolve-schemas>web_customer_tracker:</unqualified-resolve-schemas>
+    </data-source>
+    <data-source name="@localhost" uuid="685df408-e2aa-421f-bac0-81fe3fff1848">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+    </data-source>
+  </component>
+</project>

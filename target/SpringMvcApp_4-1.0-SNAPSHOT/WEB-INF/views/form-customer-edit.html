@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <!--PODLACZENIE STYLOW CSS-->
+    <link rel="stylesheet" href="/resources/css/form.css" type="text/css"/>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="container">
+    <h1>Customer form</h1>
+
+    <div>
+        <form th:action="@{/editCustomerPost}" th:object="${customer}" method="post"
+              enctype="multipart/form-data">
+            <input type="hidden" th:field="*{id}"/>
+
+            <ul style="list-style: none">
+                <li>
+                    <input type="text" placeholder="First name..." onfocus="this.placeholder=''"
+                           onblur="this.placeholder='First name...'" th:field="*{firstName}"/>
+                </li>
+
+                <li>
+                    <input type="text" placeholder="Last name..." th:field="*{lastName}" onfocus="this.placeholder=''"
+                           onblur="this.placeholder='Last name...'"/>
+                </li>
+
+                <li>
+                    <input type="text" placeholder="Email..." th:field="*{email}" onfocus="this.placeholder=''"
+                           onblur="this.placeholder='Email...'"/>
+                </li>
+
+                <li>
+                    <div>
+                        <label for="multipartFile">Choose image</label>
+                        <input id="multipartFile" type="file" th:field="*{multipartFile}"/>
+
+                    </div>
+
+                </li>
+                <li>
+                    <a href="/list"> <input type="submit" value="SAVE"></a>
+                    <a href="/list"> <input type="submit" value="BACK"></a>
+                </li>
+            </ul>
+
+        </form>
+    </div>
+
+
+</div>
+</body>
+</html>
+

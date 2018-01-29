@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <!--PODLACZENIE STYLOW CSS-->
+    <link rel="stylesheet" href="/resources/css/style_5.css" type="text/css"/>
+    <link rel="stylesheet" href="../../resources/css/fontello.css" type="text/css"/>
+
+    <meta charset="UTF-8">
+    <title>MyFirstOwnApp :) </title>
+</head>
+<body>
+
+<div>
+    <form th:object="${customer}" method="get">
+        <input type="hidden" th:field="*{id}"/>
+
+
+        <td><img th:src="@{'../../resources/img/'+${customer.getId()}+'.png'}" th:width="250px" th:height="250px" alt="photo"/></td>
+
+        FIRST NAME: <label type="text" th:text="${customer.firstName}"/>
+        <br/>
+        LAST NAME: <label type="text" th:text="${customer.lastName}"/>
+        <br/>
+        EMAIL: <label type="text" th:text="${customer.email}"/>
+        <br/>
+        LAST NAME: <label type="text" th:text="${customer.lastName}"/>
+    </form>
+
+    <a href="/list"> <input type="button" value="BACK"></a>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <!--PODLACZENIE STYLOW CSS-->
+    <link rel="stylesheet" href="/resources/css/form_3.css" type="text/css"/>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="container">
+    <h1>Customer form</h1>
+
+
+    <div>
+        <form th:action="@{/saveCustomer}" th:object="${customer}" method="post" enctype="multipart/form-data">
+            <input type="hidden" th:field="*{id}"/>
+
+            <div>
+                <input type="text" placeholder="First name..." onfocus="this.placeholder=''"
+                       onblur="this.placeholder='First name...'" th:field="*{firstName}"/>
+                <label  th:each="err: ${#fields.errors('firstName')}" th:text="${err}"></label>
+                <!--
+                <label  th:each="err: ${#fields.errors()}" th:text="${err}"></label>
+                BRAK SPECYFIKACJI W NAWIASACH W fields.errors() POWODUJE WYSWIETLENIE WSZYSTKICH BLEDOW
+                 W NAWIASACH NALEZY WPROWADZIC NAZWE POLA KTORE WALIDUJEMY
+                -->
+
+            </div>
+
+            <div>
+                <input type="text" placeholder="Last name..." th:field="*{lastName}" onfocus="this.placeholder=''"
+                       onblur="this.placeholder='Last name...'"/>
+
+                <label  th:each="err: ${#fields.errors('lastName')}" th:text="${err}"></label>
+            </div>
+
+
+
+            <div>
+                <input type="text" placeholder="Email..." th:field="*{email}" onfocus="this.placeholder=''"
+                       onblur="this.placeholder='Email...'"/>
+
+                <label  th:each="err: ${#fields.errors('email')}" th:text="${err}"></label>
+            </div>
+
+            <div>
+                <label for="multipartFile">Choose image</label>
+                <input id="multipartFile" type="file" th:field="*{multipartFile}"/>
+
+            </div>
+
+            <a href="/list"> <input type="submit" value="SAVE"></a>
+            <a href="/list"> <input type="button" value="BACK"></a>
+            
+        </form>
+    </div>
+
+
+</div>
+</body>
+</html>
+
