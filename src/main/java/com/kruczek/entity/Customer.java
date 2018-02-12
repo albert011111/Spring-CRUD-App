@@ -8,11 +8,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-/**
- * Created by Patryk on 2017-09-28.
- */
-
-
 @Entity
 @Table(name = "customer")
 public class Customer {
@@ -22,18 +17,23 @@ public class Customer {
     @Column(name = "id")
     private long id;
 
+    @NotNull
+    @Pattern(regexp = "[A-Z]{1}[a-z]+", message = "Wrong first name pattern!")
     @Column(name = "first_name")
-    @NotNull @Pattern(regexp = "[A-Z]{1}[a-z]+",message = "Wrong first name pattern!") //validation
     private String firstName;
-    @NotNull @Pattern(regexp = "[A-Z]{1}[a-z]+",message = "Wrong last name pattern!") //validation
+
+    @NotNull
+    @Pattern(regexp = "[A-Z]{1}[a-z]+", message = "Wrong last name pattern!")
     @Column(name = "last_name")
     private String lastName;
-    @NotEmpty @NotNull @Email(message = "Please provide a valid email adress!")
+
+    @NotEmpty
+    @NotNull
+    @Email(message = "Please provide a valid email adress!")
     @Column(name = "email")
     private String email;
 
-    /*MULTIPART*/
-    @Transient //makes that entity do not have this column in DB
+    @Transient
     private MultipartFile multipartFile;
     private String filePath;
 
@@ -72,8 +72,6 @@ public class Customer {
         this.email = email;
     }
 
-
-    //MULTIPART
     public MultipartFile getMultipartFile() {
         return multipartFile;
     }

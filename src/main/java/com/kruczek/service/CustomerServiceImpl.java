@@ -8,18 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * Created by Patryk on 21.09.2017.
- */
-
 @Service
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
 
-
     @Autowired
     private CustomerDao customerDao;
-
 
     @Override
     public List<Customer> getCustomers() {
@@ -32,12 +26,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer getCustomer(long theId) {
-        return customerDao.getCustomer(theId);
+    public Customer getCustomer(long customerId) {
+        return customerDao.getCustomer(customerId);
     }
 
     @Override
-    public void deleteCustomer(long theId) {
-        customerDao.deleteCustomer(theId);
+    public void deleteCustomer(long customerId) {
+        customerDao.deleteCustomer(customerId);
     }
 }

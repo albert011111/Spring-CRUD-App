@@ -10,52 +10,37 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * Created by Patryk on 2017-09-16.
- */
-@Repository
-public class CustomerDaoImpl implements CustomerDao {
 
+@Repository
+@Transactional
+public class CustomerDaoImpl implements CustomerDao {
 
     @Autowired
     SessionFactory sessionFactory;
 
-
-
     @Override
-    @Transactional
     public List<Customer> getCustomers() {
-
         Session currentSession = sessionFactory.getCurrentSession();
         Query<Customer> theQuery = currentSession.createQuery("from Customer order by lastName", Customer.class);
-
         return theQuery.getResultList();
     }
 
     @Override
-    @Transactional
     public void addCustomer(Customer customer) {
         Session currentSession = sessionFactory.getCurrentSession();
         currentSession.saveOrUpdate(customer);
     }
 
     @Override
-    @Transactional
-    public Customer getCustomer(long theId) {
+    public Customer getCustomer(long customerId) {
         Session currentSession = sessionFactory.getCurrentSession();
-        return currentSession.get(Customer.class, theId);
+        return currentSession.get(Customer.class, customerId);
     }
 
     @Override
-    @Transactional
-    public void deleteCustomer(long theId) {
+    public void deleteCustomer(long customerId) {
         Session currentSession = sessionFactory.getCurrentSession();
-        Customer customer = currentSession.get(Customer.class, theId);
+        Customer customer = currentSession.get(Customer.class, customerId);
         currentSession.delete(customer);
     }
-
-
-
-
-
 }
